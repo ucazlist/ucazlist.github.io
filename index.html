@@ -880,11 +880,14 @@ const barObs = new IntersectionObserver(entries => {
 }, { threshold: .5 });
 document.querySelectorAll('.bar i').forEach(b => barObs.observe(b));
 
-// ===== Форма =====
+// ===== Форма (отправка в Telegram + почту через Google Apps Script) =====
+const LEAD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwp0nP3TCj32Ntcvt2EST4m1abRdqUGMwxsqaJR9JD7BnJsSizvq9i-UX8oiGtXmHX7/exec';
+
 document.getElementById('leadForm').addEventListener('submit', function(e) {
   e.preventDefault();
   const name = document.getElementById('name');
   const phone = document.getElementById('phone');
+  const okMsg = document.getElementById('okMsg');
   let valid = true;
   [name, phone].forEach(f => {
     if (!f.value.trim()) {
@@ -893,9 +896,46 @@ document.getElementById('leadForm').addEventListener('submit', function(e) {
     } else { f.style.borderColor = ''; }
   });
   if (!valid) return;
-  document.getElementById('okMsg').classList.add('show');
-  this.reset();
-  document.getElementById('okMsg').scrollIntoView({ behavior:'smooth', block:'center' });
+
+  const payload = {
+    name: name.value.trim(),
+    phone: phone.value.trim(),
+    contact: document.getElementById('contact').value.trim(),
+    topic: document.getElementById('topic').value,
+    message: document.getElementById('msg').value.trim()
+  };
+
+  const btn = this.querySelector('button[type="submit"]');
+  const btnText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Отправка…';
+
+  // сброс состояния сообщения (на случай прошлой ошибки)
+  okMsg.className = 'ok-msg';
+  okMsg.style.borderColor = '';
+  okMsg.style.background = '';
+  okMsg.style.color = '';
+  okMsg.textContent = '✓ Спасибо! Заявка принята — отвечу в течение рабочего дня.';
+
+  const self = this;
+  fetch(LEAD_ENDPOINT, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+    body: JSON.stringify(payload)
+  }).catch(function() {
+    okMsg.className = 'ok-msg show';
+    okMsg.style.borderColor = '#f87171';
+    okMsg.style.background = 'rgba(248,113,113,.1)';
+    okMsg.style.color = '#f87171';
+    okMsg.textContent = '⚠ Не удалось отправить форму. Напишите в Telegram @ucazlist или позвоните +7 908 067-65-31';
+  }).finally(function() {
+    btn.disabled = false;
+    btn.textContent = btnText;
+    okMsg.classList.add('show');
+    self.reset();
+    okMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
 });
 
 // ===== Маска телефона =====
