@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Рукоделие — Наталья Мосунова | Авторские украшения ручной работы</title>
+<meta name="description" content="Авторские украшения ручной работы: броши, цветы из атласных лент, заколки, патриотические наборы к 9 Мая, новогодние игрушки из фетра. Галерея работ, видео, заказы.">
+<style>
+:root{
+  --bg:#fbf6f1;
+  --bg2:#f4ebe3;
+  --card:#ffffff;
+  --line:#e9ddd2;
+  --ink:#3b2f28;
+  --muted:#8a7a6d;
+  --rose:#d06c84;
+  --rose-d:#b14e67;
+  --gold:#c9a227;
+  --radius:16px;
+  --shadow:0 10px 30px rgba(90,60,40,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{width:min(1180px,92%);margin-inline:auto}
+
+/* ===== HEADER ===== */
+header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(251,246,241,.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line)
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:66px;gap:18px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:16.5px}
+.badge{
+  width:38px;height:38px;border-radius:50%;flex:0 0 38px;
+  background:linear-gradient(135deg,var(--rose),#e8a2ad);
+  display:grid;place-items:center;color:#fff;font-weight:800;font-size:15px;
+  box-shadow:0 6px 16px rgba(208,108,132,.35)
+}
+.brand small{display:block;font-weight:400;font-size:11px;color:var(--muted);letter-spacing:.8px;text-transform:uppercase}
+.menu{display:flex;gap:24px;align-items:center}
+.menu a{color:#6d5d51;font-size:15px;position:relative;padding:6px 0;transition:color .2s}
+.menu a:hover{color:var(--rose-d)}
+.menu a::after{content:'';position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--rose);transition:width .25s}
+.menu a:hover::after{width:100%}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px 24px;border-radius:100px;font-weight:600;font-size:15px;
+  border:none;cursor:pointer;transition:.22s;font-family:inherit;white-space:nowrap
+}
+.btn-rose{background:linear-gradient(135deg,var(--rose),var(--rose-d));color:#fff;box-shadow:0 8px 22px rgba(208,108,132,.32)}
+.btn-rose:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(208,108,132,.42)}
+.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--rose);color:var(--rose-d)}
+.burger{display:none;background:none;border:none;cursor:pointer;padding:8px}
+.burger span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;transition:.3s;border-radius:2px}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;padding:84px 0 76px;overflow:hidden;
+  background:
+    radial-gradient(ellipse at 85% 10%,rgba(208,108,132,.14),transparent 48%),
+    radial-gradient(ellipse at 5% 90%,rgba(201,162,39,.12),transparent 48%),
+    linear-gradient(170deg,var(--bg2),var(--bg))
+}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hi{
+  display:inline-flex;align-items:center;gap:8px;font-size:13.5px;color:var(--rose-d);
+  border:1px solid rgba(208,108,132,.35);background:rgba(208,108,132,.08);
+  padding:7px 16px;border-radius:100px;margin-bottom:20px;font-weight:600
+}
+.hi .dot{width:7px;height:7px;border-radius:50%;background:var(--rose);animation:blink 1.7s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+h1{font-size:clamp(30px,4.6vw,52px);line-height:1.12;font-weight:800;letter-spacing:-1.2px;margin-bottom:18px}
+h1 .grad{background:linear-gradient(100deg,var(--rose),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:clamp(16px,1.8vw,18.5px);color:#7a6a5d;max-width:54ch;margin-bottom:30px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding-top:30px;border-top:1px solid var(--line);max-width:520px}
+.stat strong{display:block;font-size:clamp(24px,3.2vw,34px);font-weight:800;line-height:1.15}
+.stat strong em{font-style:normal;color:var(--rose)}
+.stat span{font-size:13px;color:var(--muted)}
+
+/* hero collage */
+.collage{position:relative;height:440px}
+.collage img{
+  position:absolute;border-radius:18px;object-fit:cover;box-shadow:var(--shadow);
+  border:5px solid #fff;transition:transform .35s
+}
+.collage img:hover{transform:translateY(-6px) rotate(0deg)!important;z-index:5}
+.collage .c1{width:58%;height:66%;left:0;top:4%;transform:rotate(-5deg);z-index:2}
+.collage .c2{width:52%;height:56%;right:0;top:0;transform:rotate(4deg);z-index:3}
+.collage .c3{width:56%;height:54%;right:6%;bottom:0;transform:rotate(-3deg);z-index:4}
+.collage .tape{
+  position:absolute;z-index:6;background:rgba(201,162,39,.35);
+  width:74px;height:22px;border-radius:3px;transform:rotate(-8deg);
+  left:12%;top:2%;box-shadow:0 2px 6px rgba(0,0,0,.08)
+}
+
+/* ===== SECTIONS ===== */
+section{padding:80px 0}
+.sec-head{text-align:center;max-width:660px;margin:0 auto 46px}
+.sec-tag{
+  display:inline-block;color:var(--rose-d);font-weight:700;font-size:13px;
+  letter-spacing:2.4px;text-transform:uppercase;margin-bottom:12px
+}
+h2{font-size:clamp(26px,3.6vw,40px);font-weight:800;letter-spacing:-.8px;line-height:1.18}
+.sec-head p{margin-top:14px;color:var(--muted);font-size:16.5px}
+
+/* ===== FILTERS ===== */
+.filters{display:flex;gap:10px;justify-content:center;margin-bottom:34px;flex-wrap:wrap}
+.fbtn{
+  padding:10px 22px;border-radius:100px;border:1px solid var(--line);
+  background:var(--card);color:var(--muted);font-size:14.5px;font-weight:600;
+  cursor:pointer;font-family:inherit;transition:.2s
+}
+.fbtn:hover{border-color:#d9c3b4;color:var(--ink)}
+.fbtn.active{background:linear-gradient(135deg,var(--rose),var(--rose-d));color:#fff;border-color:transparent;box-shadow:0 7px 18px rgba(208,108,132,.3)}
+
+/* ===== GALLERY (masonry) ===== */
+.gallery{columns:4;column-gap:16px}
+.gal-item{
+  break-inside:avoid;margin:0 0 16px;position:relative;cursor:zoom-in;
+  border-radius:14px;overflow:hidden;background:var(--bg2);
+  box-shadow:0 4px 14px rgba(90,60,40,.08)
+}
+.gal-item img{width:100%;transition:transform .4s,filter .4s}
+.gal-item::after{
+  content:'🔍';position:absolute;right:10px;top:10px;
+  width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);
+  display:grid;place-items:center;font-size:15px;opacity:0;transition:.25s;
+  box-shadow:0 4px 10px rgba(0,0,0,.15)
+}
+.gal-item:hover::after{opacity:1}
+.gal-item:hover img{transform:scale(1.045)}
+.gal-item .yr{
+  position:absolute;left:10px;bottom:10px;z-index:2;
+  background:rgba(59,47,40,.72);color:#fff;font-size:12px;font-weight:600;
+  padding:3px 10px;border-radius:100px;backdrop-filter:blur(4px)
+}
+
+/* ===== VIDEOS ===== */
+.videos-sec{background:var(--bg2);border-block:1px solid var(--line)}
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+.vcard{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;transition:.25s
+}
+.vcard:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.vcard video{width:100%;aspect-ratio:16/9;background:#000;display:block}
+.vcard .vmeta{padding:14px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.vcard .vmeta b{font-size:15px;font-weight:600}
+.vcard .vmeta span{font-size:13px;color:var(--muted);white-space:nowrap}
+
+/* ===== IMG_20201225_012542.jpg ===== */
+.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center}
+.about-img{position:relative}
+.about-img img{border-radius:20px;box-shadow:var(--shadow);width:100%;object-fit:cover;max-height:460px}
+.about-img .frame{
+  position:absolute;inset:-14px -14px 14px 14px;border:2px solid var(--gold);
+  border-radius:20px;z-index:-1;opacity:.6
+}
+.about h2{text-align:left;margin-bottom:18px}
+.about p{color:#7a6a5d;margin-bottom:14px;font-size:16.5px}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+.chip{
+  padding:8px 15px;border-radius:100px;background:var(--card);
+  border:1px solid var(--line);font-size:14px;color:#6d5d51;transition:.2s
+}
+.chip:hover{border-color:var(--rose);color:var(--rose-d);transform:translateY(-2px)}
+
+/* ===== CONTACTS ===== */
+.cta{
+  background:linear-gradient(135deg,#fdf1ec,#f7e6d8);
+  border:1px solid rgba(208,108,132,.3);border-radius:22px;
+  padding:48px 42px;text-align:center;position:relative;overflow:hidden
+}
+.cta::before{
+  content:'';position:absolute;left:50%;top:-55%;width:480px;height:480px;
+  transform:translateX(-50%);background:radial-gradient(circle,rgba(208,108,132,.18),transparent 68%)
+}
+.cta>*{position:relative;z-index:1}
+.cta h2{margin-bottom:12px}
+.cta p{color:#7a6a5d;font-size:16.5px;max-width:58ch;margin:0 auto 26px}
+.cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:34px}
+.c-card{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:22px 24px;display:flex;gap:15px;align-items:flex-start;transition:.22s
+}
+.c-card:hover{border-color:var(--rose);transform:translateY(-4px);box-shadow:var(--shadow)}
+.c-ic{
+  flex:0 0 44px;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
+  background:linear-gradient(135deg,rgba(208,108,132,.15),rgba(201,162,39,.15));
+  border:1px solid rgba(208,108,132,.28);font-size:19px
+}
+.c-card h4{font-size:15.5px;margin-bottom:3px}
+.c-card p{font-size:14.5px;color:var(--muted)}
+.c-card a{color:var(--rose-d);font-weight:600}
+.c-card a:hover{text-decoration:underline}
+
+/* ===== FOOTER ===== */
+footer{background:#33291f;color:#cbbba9;padding:40px 0 26px;font-size:14.5px}
+.f-top{display:flex;justify-content:space-between;gap:26px;flex-wrap:wrap;margin-bottom:26px;align-items:center}
+.f-top .brand{color:#fff}
+.f-nav{display:flex;gap:22px;flex-wrap:wrap}
+.f-nav a:hover{color:#e8a2ad}
+.f-bot{border-top:1px solid #4a3d33;padding-top:20px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:13.5px;color:#9c8b7c}
+.f-bot a{color:#cbbba9}
+.f-bot a:hover{color:#e8a2ad}
+
+/* ===== LIGHTBOX ===== */
+.lb{
+  position:fixed;inset:0;z-index:1000;background:rgba(28,22,18,.95);
+  display:none;align-items:center;justify-content:center;opacity:0;transition:opacity .25s
+}
+.lb.show{display:flex;opacity:1}
+.lb img{max-width:92vw;max-height:86vh;object-fit:contain;border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lb-btn{
+  position:absolute;background:rgba(255,255,255,.12);border:none;color:#fff;
+  width:52px;height:52px;border-radius:50%;font-size:22px;cursor:pointer;
+  transition:.2s;display:grid;place-items:center;backdrop-filter:blur(6px)
+}
+.lb-btn:hover{background:rgba(255,255,255,.28)}
+.lb-close{top:22px;right:22px}
+.lb-prev{left:22px;top:50%;transform:translateY(-50%)}
+.lb-next{right:22px;top:50%;transform:translateY(-50%)}
+.lb-count{
+  position:absolute;bottom:24px;left:50%;transform:translateX(-50%);
+  color:#e8ddd2;font-size:15px;background:rgba(255,255,255,.1);
+  padding:7px 18px;border-radius:100px;backdrop-filter:blur(6px)
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1080px){ .gallery{columns:3} }
+@media(max-width:980px){
+  .hero-grid{grid-template-columns:1fr;gap:36px}
+  .collage{height:360px;max-width:560px;margin-inline:auto;width:100%}
+  .about{grid-template-columns:1fr}
+}
+@media(max-width:860px){
+  .burger{display:block}
+  .menu{
+    position:absolute;top:66px;left:0;right:0;background:var(--bg);
+    flex-direction:column;gap:0;padding:8px 0;align-items:stretch;
+    border-bottom:1px solid var(--line);
+    transform:translateY(-14px);opacity:0;pointer-events:none;transition:.28s
+  }
+  .menu.show{transform:translateY(0);opacity:1;pointer-events:auto}
+  .menu a{padding:14px 6%;font-size:16px}
+  .menu a::after{display:none}
+  .head-cta{display:none}
+  .gallery{columns:2}
+}
+@media(max-width:560px){
+  section{padding:58px 0}
+  .hero{padding:56px 0 60px}
+  .gallery{columns:2;column-gap:10px}
+  .gal-item{margin-bottom:10px}
+  .stats{grid-template-columns:repeat(3,1fr);gap:10px}
+  .hero-actions .btn,.cta-actions .btn{width:100%}
+  .cta{padding:32px 24px}
+  .lb-prev{left:8px}.lb-next{right:8px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand">
+      <span class="badge">НМ</span>
+      <span>Наталья Мосунова<small>рукоделие · украшения</small></span>
+    </a>
+    <nav class="menu" id="menu">
+      <a href="#gallery">Галерея</a>
+      <a href="#videos">Видео</a>
+      <a href="#about">О мастере</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="head-cta">
+      <a href="#contacts" class="btn btn-rose">Заказать</a>
+      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="hi"><span class="dot"></span> Принимаю заказы</span>
+      <h1>Авторские украшения <span class="grad">ручной работы</span></h1>
+      <p class="lead">
+        Броши, цветы из атласных лент, заколки и резинки, патриотические наборы к 9 Мая,
+        новогодние игрушки из фетра. Каждая работа — единственная в своём роде,
+        собрана вручную с любовью к деталям.
+      </p>
+      <div class="hero-actions">
+        <a href="#gallery" class="btn btn-rose">Смотреть работы</a>
+        <a href="#contacts" class="btn btn-ghost">Заказать изделие</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><strong><em id="s1">0</em></strong><span>фотографий работ</span></div>
+        <div class="stat"><strong><em id="s2">0</em></strong><span>видео в мастерской</span></div>
+        <div class="stat"><strong>с <em>2019</em></strong><span>года в архиве</span></div>
+      </div>
+    </div>
+    <div class="collage" id="collage">
+      <span class="tape"></span>
+      <img class="c1" src="img/IMG_20210224_124027.jpg" alt="Работа мастера">
+      <img class="c2" src="img/20210409194259.jpg" alt="Работа мастера">
+      <img class="c3" src="img/IMG_20211018_152933.jpg" alt="Работа мастера">
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">Галерея</span>
+      <h2>Работы из архива</h2>
+      <p>Нажмите на фотографию, чтобы рассмотреть изделие в полном размере. Используйте стрелки, чтобы листать.</p>
+    </div>
+    <div class="filters" id="filters">
+      <button class="fbtn active" data-year="all">Все работы</button>
+      <button class="fbtn" data-year="2021">2021</button>
+      <button class="fbtn" data-year="2020">2020</button>
+      <button class="fbtn" data-year="2019">2019</button>
+    </div>
+    <div class="gallery" id="galleryGrid">
+      <figure class="gal-item" data-year="2021"><img src="img/20210404220806.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210406115508.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210408123123.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210409194259.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210409194328.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210411083630.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210412154922.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210414164203.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210416090451.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210416202444.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210417104112.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210417114022.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210417114258.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210417114414.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210417114558.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210417114726.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210417114911.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210417115033.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210417115320.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210418092924.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210419163405.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210419163640.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210419163921.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210419183857.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210419184113.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210419184334.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210419184537.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210419184755.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210420120718.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210420120923.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210420121126.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210420121351.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210420121600.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210420221853.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210427220118.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210511171044.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210511171506.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210517093422.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210517093547.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210518123922.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210530102642.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210531100041.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210603201815.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210603215206.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210610122924.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210611125308.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210611125457.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210611125557.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210611125656.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210611125758.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210611125933.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210611130048.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210611130143.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210611130248.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210611130342.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210611130523.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210611130614.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210611130656.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210611130802.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210611130848.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210614214149.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210721092017.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210721092226.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210729141844.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210729142123.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210730152444.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210731113328.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210801220358.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210816131133.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210816131554.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210816131916.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210816132109.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210925084818.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210925085313.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210925085518.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210925085803.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210925090001.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210925090210.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210925090617.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20210925090927.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20211020182815.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20211021160354.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20211021160553.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20211021161105.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20211021161120.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20211023135452.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20211024135038.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/20211027101108.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2019"><img src="img/IMG_20191129_154027.jpg" alt="Работа ручной работы, 2019" loading="lazy"><span class="yr">2019</span></figure>
+      <figure class="gal-item" data-year="2019"><img src="img/IMG_20191129_154038.jpg" alt="Работа ручной работы, 2019" loading="lazy"><span class="yr">2019</span></figure>
+      <figure class="gal-item" data-year="2019"><img src="img/IMG_20191129_154149.jpg" alt="Работа ручной работы, 2019" loading="lazy"><span class="yr">2019</span></figure>
+      <figure class="gal-item" data-year="2019"><img src="img/IMG_20191129_154201.jpg" alt="Работа ручной работы, 2019" loading="lazy"><span class="yr">2019</span></figure>
+      <figure class="gal-item" data-year="2019"><img src="img/IMG_20191129_154240.jpg" alt="Работа ручной работы, 2019" loading="lazy"><span class="yr">2019</span></figure>
+      <figure class="gal-item" data-year="2019"><img src="img/IMG_20191129_154245.jpg" alt="Работа ручной работы, 2019" loading="lazy"><span class="yr">2019</span></figure>
+      <figure class="gal-item" data-year="2019"><img src="img/IMG_20191129_154307.jpg" alt="Работа ручной работы, 2019" loading="lazy"><span class="yr">2019</span></figure>
+      <figure class="gal-item" data-year="2019"><img src="img/IMG_20191129_154332.jpg" alt="Работа ручной работы, 2019" loading="lazy"><span class="yr">2019</span></figure>
+      <figure class="gal-item" data-year="2019"><img src="img/IMG_20191129_154401.jpg" alt="Работа ручной работы, 2019" loading="lazy"><span class="yr">2019</span></figure>
+      <figure class="gal-item" data-year="2019"><img src="img/IMG_20191129_154422.jpg" alt="Работа ручной работы, 2019" loading="lazy"><span class="yr">2019</span></figure>
+      <figure class="gal-item" data-year="2019"><img src="img/IMG_20191129_154456.jpg" alt="Работа ручной работы, 2019" loading="lazy"><span class="yr">2019</span></figure>
+      <figure class="gal-item" data-year="2019"><img src="img/IMG_20191201_111621.jpg" alt="Работа ручной работы, 2019" loading="lazy"><span class="yr">2019</span></figure>
+      <figure class="gal-item" data-year="2019"><img src="img/IMG_20191215_142207.jpg" alt="Работа ручной работы, 2019" loading="lazy"><span class="yr">2019</span></figure>
+      <figure class="gal-item" data-year="2019"><img src="img/IMG_20191224_112204.jpg" alt="Работа ручной работы, 2019" loading="lazy"><span class="yr">2019</span></figure>
+      <figure class="gal-item" data-year="2019"><img src="img/IMG_20191224_112250.jpg" alt="Работа ручной работы, 2019" loading="lazy"><span class="yr">2019</span></figure>
+      <figure class="gal-item" data-year="2019"><img src="img/IMG_20191224_112321.jpg" alt="Работа ручной работы, 2019" loading="lazy"><span class="yr">2019</span></figure>
+      <figure class="gal-item" data-year="2019"><img src="img/IMG_20191228_205148.jpg" alt="Работа ручной работы, 2019" loading="lazy"><span class="yr">2019</span></figure>
+      <figure class="gal-item" data-year="2019"><img src="img/IMG_20191228_205150.jpg" alt="Работа ручной работы, 2019" loading="lazy"><span class="yr">2019</span></figure>
+      <figure class="gal-item" data-year="2019"><img src="img/IMG_20191231_151652.jpg" alt="Работа ручной работы, 2019" loading="lazy"><span class="yr">2019</span></figure>
+      <figure class="gal-item" data-year="2019"><img src="img/IMG_20191231_151729.jpg" alt="Работа ручной работы, 2019" loading="lazy"><span class="yr">2019</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200208_155358.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200208_155405.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200211_101137.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200215_100902.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200215_101041.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200215_101057.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200215_101124.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200215_101146.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200215_101257.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200303_150543.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200303_150555.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200303_150654.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200303_150704.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200303_150810.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200303_150837.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200303_150855.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200304_170408.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200312_093100.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200312_093113.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200312_093203.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200312_093235.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200312_093255.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200312_093325.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200312_093414.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200312_093429.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200312_093540.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200318_165956.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200413_134847.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200427_223658.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200429_140712.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200813_150944.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20200813_163647.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201015_122920.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201015_122947.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201020_155153.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201020_155213.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201020_155411.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201022_113549.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201022_113601_1.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201022_113646.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201023_173737.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201023_174032.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201023_174132.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201023_174156.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201027_103558.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201101_154257.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201103_115757.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201105_104439.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201109_143643.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201123_155759.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201123_155840.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201123_155851.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201123_155904.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201123_155933.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201123_160043.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201124_155254.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201129_144842.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201130_122836.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201211_105228.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201217_114418.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201217_114450.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201218_161956.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201225_012542.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201225_012618.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201225_012648.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201225_012810.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201230_111304.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201230_111334.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2020"><img src="img/IMG_20201230_114203.jpg" alt="Работа ручной работы, 2020" loading="lazy"><span class="yr">2020</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210111_114932.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210130_131117.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210130_131242.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210130_131255.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210130_131400.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210130_131508.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210130_131552.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210207_114530.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210209_145404.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210209_145627.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210210_110538.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210210_125817.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210210_125821.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210210_125842.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210210_125939.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210216_105552.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210216_105620.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210216_105719.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210218_141653.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210218_141701.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210222_112925.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210222_113052.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210222_113340.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210222_113414.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210222_113653.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210222_113657.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210222_143043.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210223_120603.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210223_120731.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210223_120925.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210224_124027.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210224_124031.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210224_124038.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210224_124120.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210224_124154.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210224_124306.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210225_155810.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210225_155925.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210225_160201.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210225_160229.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210226_154521.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210226_154545.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210227_160502.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210227_170803.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210227_170838.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210227_180810.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210228_082941.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210306_170852.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210306_170904.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210306_170914.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210306_171000.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210306_174330.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210306_174339.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210306_174349.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210306_174359.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210306_174413.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210306_174431.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210308_110310.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210308_110316.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210313_141753.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210313_141845.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210331_133447.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210331_133509.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210401_131319.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210401_131350.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210401_131405.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210401_131426.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210401_131446.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210401_131552.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210401_131907.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210401_131914.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210401_131920.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210401_131940.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210401_133117.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210401_133147.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210401_133200.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210401_133216.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210401_133229.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210401_133252.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210401_133259.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210401_133306.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210401_133316.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210401_133325.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210401_133331.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210401_133529.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210401_133533.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210401_133715.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210401_133718.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210409_123326.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210409_123343.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210409_123407.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210409_123432.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210409_123505.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210409_123520.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210409_123539.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210416_144529.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210416_144600.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210416_144739.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210416_144849.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210417_101328.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210419_012108.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210419_012143.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210419_012203.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210419_012216.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210419_012240.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210419_012302.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210419_012318.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210419_012407.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210420_005804.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210420_005843.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210420_005924.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210420_005939.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210420_094938.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210420_104318.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210420_155356.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210426_163602.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210426_163639.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210523_173845.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210523_174050.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210524_160716.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210524_160803.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210524_160901.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210524_160952.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210527_193832.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210527_193850.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210527_193914.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210527_193950.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210527_194012.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210527_194034.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210527_194058.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210527_200438.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210529_152357.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210529_152442.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210529_153117.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210529_153252.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210531_185849.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210531_190122.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210531_190200.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210531_190221.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210531_190325.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210603_183125.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210603_183131.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210603_183216.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210603_183302.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210603_184555.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210603_184918.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210605_161622.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210605_161702.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210605_161732.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210607_122517.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210608_124134.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210608_124152.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210608_152408.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210608_152507.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210614_150830.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210720_161017.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210720_161119.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210729_135414.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210729_135500.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210729_135607.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210729_135827.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210729_135853.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210804_130044.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210804_130116.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210816_121139.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210816_121544.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210816_121628.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210816_121633.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210816_121654.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210906_121513.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210924_151506.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210924_151543.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210924_151623.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210924_151626.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210924_151714.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210924_151737.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210924_151809.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210924_151820.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210924_151833.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20210925_075025.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20211001_104658.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20211011_151023.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20211011_151027.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20211011_151106.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20211011_151130.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20211011_151145.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20211011_151215_BURST001_COVER.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20211011_151215_BURST002.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20211011_151220.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20211011_151318.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20211011_151320.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20211011_151355.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20211011_151357.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20211018_125937.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20211018_130006.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20211018_130044.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20211018_130046.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20211018_152707.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20211018_152716.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20211018_152933.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20211018_152939.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+      <figure class="gal-item" data-year="2021"><img src="img/IMG_20211019_141633.jpg" alt="Работа ручной работы, 2021" loading="lazy"><span class="yr">2021</span></figure>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section id="videos" class="videos-sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">Видео</span>
+      <h2>Живые работы</h2>
+      <p>Как выглядят изделия в движении — съёмки из мастерской.</p>
+    </div>
+    <div class="vgrid">
+      <div class="vcard">
+        <video controls preload="metadata" poster="video/a377fb93982c31f5ba9b234894cdfbcf.jpg" src="video/a377fb93982c31f5ba9b234894cdfbcf.mp4"></video>
+        <div class="vmeta"><b>Видео из мастерской</b><span></span></div>
+      </div>
+      <div class="vcard">
+        <video controls preload="metadata" poster="video/VID_20191224_025240.jpg" src="video/VID_20191224_025240.mp4"></video>
+        <div class="vmeta"><b>Видео из мастерской</b><span></span></div>
+      </div>
+      <div class="vcard">
+        <video controls preload="metadata" poster="video/VID_20200208_155733.jpg" src="video/VID_20200208_155733.mp4"></video>
+        <div class="vmeta"><b>Видео из мастерской</b><span></span></div>
+      </div>
+      <div class="vcard">
+        <video controls preload="metadata" poster="video/VID_20200215_101019.jpg" src="video/VID_20200215_101019.mp4"></video>
+        <div class="vmeta"><b>Видео из мастерской</b><span></span></div>
+      </div>
+      <div class="vcard">
+        <video controls preload="metadata" poster="video/VID_20201020_155347.jpg" src="video/VID_20201020_155347.mp4"></video>
+        <div class="vmeta"><b>Видео из мастерской</b><span></span></div>
+      </div>
+      <div class="vcard">
+        <video controls preload="metadata" poster="video/VID_20201027_103505.jpg" src="video/VID_20201027_103505.mp4"></video>
+        <div class="vmeta"><b>Видео из мастерской</b><span></span></div>
+      </div>
+      <div class="vcard">
+        <video controls preload="metadata" poster="video/VID_20201030_090211.jpg" src="video/VID_20201030_090211.mp4"></video>
+        <div class="vmeta"><b>Видео из мастерской</b><span></span></div>
+      </div>
+      <div class="vcard">
+        <video controls preload="metadata" poster="video/VID_20201101_154421.jpg" src="video/VID_20201101_154421.mp4"></video>
+        <div class="vmeta"><b>Видео из мастерской</b><span></span></div>
+      </div>
+      <div class="vcard">
+        <video controls preload="metadata" poster="video/VID_20201103_115855.jpg" src="video/VID_20201103_115855.mp4"></video>
+        <div class="vmeta"><b>Видео из мастерской</b><span></span></div>
+      </div>
+      <div class="vcard">
+        <video controls preload="metadata" poster="video/VID_20201109_143536.jpg" src="video/VID_20201109_143536.mp4"></video>
+        <div class="vmeta"><b>Видео из мастерской</b><span></span></div>
+      </div>
+      <div class="vcard">
+        <video controls preload="metadata" poster="video/VID_20201218_152454.jpg" src="video/VID_20201218_152454.mp4"></video>
+        <div class="vmeta"><b>Видео из мастерской</b><span></span></div>
+      </div>
+      <div class="vcard">
+        <video controls preload="metadata" poster="video/VID_20201221_145849.jpg" src="video/VID_20201221_145849.mp4"></video>
+        <div class="vmeta"><b>Видео из мастерской</b><span></span></div>
+      </div>
+      <div class="vcard">
+        <video controls preload="metadata" poster="video/VID_20201221_145947.jpg" src="video/VID_20201221_145947.mp4"></video>
+        <div class="vmeta"><b>Видео из мастерской</b><span></span></div>
+      </div>
+      <div class="vcard">
+        <video controls preload="metadata" poster="video/VID_20201223_122624.jpg" src="video/VID_20201223_122624.mp4"></video>
+        <div class="vmeta"><b>Видео из мастерской</b><span></span></div>
+      </div>
+      <div class="vcard">
+        <video controls preload="metadata" poster="video/VID_20201223_122901.jpg" src="video/VID_20201223_122901.mp4"></video>
+        <div class="vmeta"><b>Видео из мастерской</b><span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMG_20201225_012542.jpg -->
+<section id="about">
+  <div class="wrap about">
+    <div class="about-img">
+      <span class="frame"></span>
+      <img src="img/IMG_20201225_012542.jpg" alt="Работа мастера">
+    </div>
+    <div>
+      <span class="sec-tag">О мастере</span>
+      <h2>Наталья Мосунова</h2>
+      <p>
+        Рукоделие — моё увлечение, которому с 2019 года. Из атласных лент, фетра, кружева,
+        бусин и страз рождаются украшения для девочек и взрослых: броши, заколки, цветы,
+        ободки и ёлочные игрушки.
+      </p>
+      <p>
+        Работаю вручную, без конвейера: каждая вещь проходит через руки от резки ленты
+        до последнего страза. Беру заказы к праздникам — 9 Мая, Новый год, 1 сентября,
+        дни рождения — и к обычным дням, когда хочется красивой мелочи.
+      </p>
+      <div class="chips">
+        <span class="chip">Броши</span>
+        <span class="chip">Цветы из лент</span>
+        <span class="chip">Заколки и резинки</span>
+        <span class="chip">Канзаши</span>
+        <span class="chip">Фетр</span>
+        <span class="chip">Новогодние игрушки</span>
+        <span class="chip">Патриотические наборы</span>
+        <span class="chip">Ободки</span>
+        <span class="chip">Кружево и стразы</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section id="contacts" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta">
+      <h2>Хотите такое же изделие?</h2>
+      <p>Напишите, что нравится из галереи, или опишите свою идею — обсудим цвета, размер и сроки. Ответ в течение дня.</p>
+      <div class="cta-actions">
+        <a href="https://t.me/ucazlist" target="_blank" rel="noopener" class="btn btn-rose">Написать в Telegram</a>
+        <a href="tel:+79080676531" class="btn btn-ghost">Позвонить</a>
+      </div>
+    </div>
+
+    <div class="cgrid">
+      <div class="c-card">
+        <span class="c-ic">📱</span>
+        <div><h4>Телефон</h4><p><a href="tel:+79080676531">+7 908 067-65-31</a></p></div>
+      </div>
+      <div class="c-card">
+        <span class="c-ic">✈️</span>
+        <div><h4>Telegram</h4><p><a href="https://t.me/ucazlist" target="_blank" rel="noopener">@ucazlist</a> — отвечаю быстрее всего</p></div>
+      </div>
+      <div class="c-card">
+        <span class="c-ic">✉️</span>
+        <div><h4>Почта</h4><p><a href="mailto:ucaz@list.ru">ucaz@list.ru</a></p></div>
+      </div>
+      <div class="c-card">
+        <span class="c-ic">🚚</span>
+        <div><h4>Доставка</h4><p>Отправка Почтой России<br>и курьером по договорённости</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <a href="#top" class="brand">
+        <span class="badge">НМ</span>
+        <span>Наталья Мосунова<small>рукоделие · украшения</small></span>
+      </a>
+      <nav class="f-nav">
+        <a href="#gallery">Галерея</a>
+        <a href="#videos">Видео</a>
+        <a href="#about">О мастере</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+    </div>
+    <div class="f-bot">
+      <span>© 2026 Наталья Мосунова. Рукоделие — авторские работы.</span>
+      <span>Также: <a href="https://ucazlist.github.io/">ИТ-администратор и инженер-электроник</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <button class="lb-btn lb-close" id="lbClose" aria-label="Закрыть">✕</button>
+  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Назад">‹</button>
+  <img id="lbImg" src="" alt="Работа мастера">
+  <button class="lb-btn lb-next" id="lbNext" aria-label="Вперёд">›</button>
+  <div class="lb-count" id="lbCount"></div>
+</div>
+
+<script>
+// ===== Мобильное меню =====
+const burger = document.getElementById('burger');
+const menu = document.getElementById('menu');
+burger.addEventListener('click', () => {
+  burger.classList.toggle('open');
+  menu.classList.toggle('show');
+});
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  burger.classList.remove('open');
+  menu.classList.remove('show');
+}));
+
+// ===== Счётчики =====
+function countUp(el, target) {
+  let cur = 0;
+  const step = Math.max(1, Math.round(target / 40));
+  const timer = setInterval(() => {
+    cur += step;
+    if (cur >= target) { cur = target; clearInterval(timer); }
+    el.textContent = cur;
+  }, 30);
+}
+const statsObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    countUp(document.getElementById('s1'), 379);
+    countUp(document.getElementById('s2'), 15);
+    statsObs.disconnect();
+  });
+}, { threshold: .4 });
+statsObs.observe(document.querySelector('.stats'));
+
+// ===== Фильтр по годам =====
+const grid = document.getElementById('galleryGrid');
+document.querySelectorAll('.fbtn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const y = btn.dataset.year;
+    grid.querySelectorAll('.gal-item').forEach(item => {
+      item.style.display = (y === 'all' || item.dataset.year === y) ? '' : 'none';
+    });
+    closeLb();
+  });
+});
+
+// ===== Лайтбокс =====
+const lb = document.getElementById('lb');
+const lbImg = document.getElementById('lbImg');
+const lbCount = document.getElementById('lbCount');
+let curIdx = 0;
+
+function visibleItems() {
+  return Array.from(grid.querySelectorAll('.gal-item'))
+    .filter(i => i.style.display !== 'none');
+}
+function openLb(idx) {
+  const items = visibleItems();
+  if (!items.length) return;
+  curIdx = Math.max(0, Math.min(idx, items.length - 1));
+  showLb();
+}
+function showLb() {
+  const items = visibleItems();
+  const item = items[curIdx];
+  if (!item) return closeLb();
+  lbImg.src = item.querySelector('img').src;
+  lbCount.textContent = (curIdx + 1) + ' / ' + items.length;
+  lb.classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeLb() {
+  lb.classList.remove('show');
+  document.body.style.overflow = '';
+}
+function step(d) {
+  const items = visibleItems();
+  curIdx = (curIdx + d + items.length) % items.length;
+  showLb();
+}
+grid.addEventListener('click', e => {
+  const item = e.target.closest('.gal-item');
+  if (!item) return;
+  openLb(visibleItems().indexOf(item));
+});
+document.getElementById('lbClose').addEventListener('click', closeLb);
+document.getElementById('lbPrev').addEventListener('click', e => { e.stopPropagation(); step(-1); });
+document.getElementById('lbNext').addEventListener('click', e => { e.stopPropagation(); step(1); });
+lb.addEventListener('click', e => { if (e.target === lb || e.target === lbImg) closeLb(); });
+document.addEventListener('keydown', e => {
+  if (!lb.classList.contains('show')) return;
+  if (e.key === 'Escape') closeLb();
+  if (e.key === 'ArrowLeft') step(-1);
+  if (e.key === 'ArrowRight') step(1);
+});
+</script>
+</body>
+</html>
